@@ -1,0 +1,423 @@
+*------------------------------------------------------------*
+User:                mital
+Date:                August 07, 2022
+Time:                19:07:54 o'clock
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+          Measurement    Frequency
+ Role        Level         Count
+ 
+INPUT       NOMINAL          9
+TARGET      NOMINAL          1
+ 
+ 
+ 
+ 
+Model Events
+ 
+                                              Number
+                               Measurement      of
+Target          Event             Level       Levels      Order       Label
+ 
+Class     RECURRENCE-EVENTS      NOMINAL         2      Descending    Class
+ 
+ 
+ 
+ 
+Predicted and decision variables
+ 
+Type         Variable                       Label
+ 
+TARGET       Class                          Class
+PREDICTED    P_Classrecurrence_events       Predicted: Class=recurrence-events
+RESIDUAL     R_Classrecurrence_events       Residual: Class=recurrence-events
+PREDICTED    P_Classno_recurrence_events    Predicted: Class=no-recurrence-events
+RESIDUAL     R_Classno_recurrence_events    Residual: Class=no-recurrence-events
+FROM         F_Class                        From: Class
+INTO         I_Class                        Into: Class
+ 
+ 
+ 
+ 
+ 
+The DMREG Procedure
+ 
+                Model Information
+ 
+Training Data Set              WORK.EM_DMREG.VIEW
+DMDB Catalog                   WORK.REG_DMDB
+Target Variable                Class (Class)
+Target Measurement Level       Nominal
+Number of Target Categories    2
+Error                          MBernoulli
+Link Function                  Logit
+Number of Model Parameters     33
+Number of Observations         170
+ 
+ 
+                 Target Profile
+ 
+ Ordered                                  Total
+   Value     Class                    Frequency
+ 
+       1     recurrence-events               50
+       2     no-recurrence-events           120
+ 
+ 
+ 
+ 
+ 
+The DMREG Procedure
+ 
+Newton-Raphson Ridge Optimization
+ 
+Without Parameter Scaling
+ 
+Parameter Estimates              33
+ 
+                                             Optimization Start
+ 
+Active Constraints                                  0  Objective Function                       102.98557489
+Max Abs Gradient Element                 18.352941176
+ 
+ 
+                                                                                                        Ratio
+                                                                                                      Between
+                                                                                                       Actual
+                                                                 Objective     Max Abs                    and
+                     Function         Active        Objective     Function    Gradient              Predicted
+Iter     Restarts       Calls    Constraints         Function       Change     Element     Ridge       Change
+ 
+   1            0           2              0         83.50656      19.4790      4.8436         0        1.028
+   2            0           3              0         81.58135       1.9252      0.8247         0        1.207
+   3            0           4              0         81.07802       0.5033      0.2517         0        1.251
+   4            0           5              0         80.90642       0.1716      0.0903         0        1.261
+   5            0           6              0         80.84454       0.0619      0.0331         0        1.263
+   6            0           7              0         80.82193       0.0226      0.0122         0        1.264
+   7            0           8              0         80.81364      0.00830     0.00447         0        1.264
+   8            0           9              0         80.81059      0.00305     0.00164         0        1.264
+   9            0          10              0         80.80947      0.00112    0.000605         0        1.264
+  10            0          11              0         80.80905     0.000413    0.000223         0        1.264
+  11            0          12              0         80.80890     0.000152    0.000082         0        1.264
+  12            0          13              0         80.80885     0.000056    0.000030         0        1.264
+ 
+                                            Optimization Results
+ 
+Iterations                                         12  Function Calls                                     15
+Hessian Calls                                      13  Active Constraints                                  0
+Objective Function                       80.808845933  Max Abs Gradient Element                 0.0000301224
+Ridge                                               0  Actual Over Pred Change                  1.2642402781
+ 
+Convergence criterion (GCONV=1E-6) satisfied.
+ 
+ 
+     Likelihood Ratio Test for Global Null Hypothesis: BETA=0
+ 
+     -2 Log Likelihood          Likelihood
+  Intercept     Intercept &          Ratio
+       Only      Covariates     Chi-Square       DF     Pr > ChiSq
+ 
+    205.971         161.618        44.3535       32         0.0719
+ 
+ 
+          Type 3 Analysis of Effects
+ 
+                             Wald
+Effect           DF    Chi-Square    Pr > ChiSq
+ 
+Age               4        2.4839        0.6475
+breast            1        0.0013        0.9710
+breast_quad       4      382.5814        <.0001
+deg_malig         2        9.9872        0.0068
+inv_nodes         5        4.8705        0.4319
+irradiat          1        0.0008        0.9773
+menopause         2        0.9024        0.6369
+node_caps         2        0.3422        0.8427
+tumor_size       10        2.0584        0.9959
+ 
+ 
+                                     Analysis of Maximum Likelihood Estimates
+ 
+                                                                   Standard          Wald
+Parameter                Class                   DF    Estimate       Error    Chi-Square    Pr > ChiSq    Exp(Est)
+ 
+Intercept                recurrence-events        1     -1.2082       197.6          0.00        0.9951       0.299
+Age         30-39        recurrence-events        1      2.8020     87.7390          0.00        0.9745      16.477
+Age         40-49        recurrence-events        1      2.4618     87.7380          0.00        0.9776      11.726
+Age         50-59        recurrence-events        1      1.9088     87.7379          0.00        0.9826       6.745
+Age         60-69        recurrence-events        1      2.6831     87.7386          0.00        0.9756      14.630
+breast      left         recurrence-events        1    -0.00792      0.2183          0.00        0.9710       0.992
+breast_quad ?            recurrence-events        1     12.0407           .           .           .         999.000
+breast_quad central      recurrence-events        1     -1.7112      0.7241          5.58        0.0181       0.181
+breast_quad left_low     recurrence-events        1     -2.6215      0.3918         44.76        <.0001       0.073
+breast_quad left_up      recurrence-events        1     -2.6465      0.3864         46.92        <.0001       0.071
+breast_quad right_low    recurrence-events        1     -2.3693      0.7236         10.72        0.0011       0.094
+deg_malig   1            recurrence-events        1     -0.2489      0.3815          0.43        0.5141       0.780
+deg_malig   2            recurrence-events        1     -0.5986      0.3047          3.86        0.0495       0.550
+inv_nodes   0-2          recurrence-events        1     -3.0219       153.2          0.00        0.9843       0.049
+inv_nodes   15-17        recurrence-events        1     -2.5554       153.2          0.00        0.9867       0.078
+inv_nodes   24-26        recurrence-events        1     10.3680       766.1          0.00        0.9892     999.000
+inv_nodes   3-5          recurrence-events        1     -1.8160       153.2          0.00        0.9905       0.163
+inv_nodes   6-8          recurrence-events        1     -1.6597       153.2          0.00        0.9914       0.190
+irradiat    no           recurrence-events        1     0.00739      0.2602          0.00        0.9773       1.007
+menopause   ge40         recurrence-events        1     -0.5351      0.5633          0.90        0.3422       0.586
+menopause   lt40         recurrence-events        1      0.7629      0.9839          0.60        0.4381       2.145
+node_caps   ?            recurrence-events        1     -0.5837      1.0190          0.33        0.5668       0.558
+node_caps   no           recurrence-events        1      0.2367      0.5645          0.18        0.6749       1.267
+tumor_size  0-4          recurrence-events        1      2.1812     88.6642          0.00        0.9804       8.857
+tumor_size  10-14        recurrence-events        1     -8.7940       227.5          0.00        0.9692       0.000
+tumor_size  15-19        recurrence-events        1      3.2194     88.6572          0.00        0.9710      25.012
+tumor_size  20-24        recurrence-events        1      3.7817     88.6566          0.00        0.9660      43.892
+tumor_size  25-29        recurrence-events        1      3.5738     88.6565          0.00        0.9678      35.653
+tumor_size  30-34        recurrence-events        1      3.3791     88.6562          0.00        0.9696      29.344
+tumor_size  35-39        recurrence-events        1      3.4717     88.6579          0.00        0.9688      32.192
+tumor_size  40-44        recurrence-events        1      2.8603     88.6602          0.00        0.9743      17.467
+tumor_size  45-49        recurrence-events        1     -8.4507       757.0          0.00        0.9911       0.000
+tumor_size  5-9          recurrence-events        1     -8.8744       420.6          0.00        0.9832       0.000
+ 
+ 
+                         Odds Ratio Estimates
+ 
+                                                                 Point
+Effect                                Class                   Estimate
+ 
+Age         30-39 vs 70-79            recurrence-events        999.000
+Age         40-49 vs 70-79            recurrence-events        999.000
+Age         50-59 vs 70-79            recurrence-events        999.000
+Age         60-69 vs 70-79            recurrence-events        999.000
+breast      left vs right             recurrence-events          0.984
+breast_quad ? vs right_up             recurrence-events        999.000
+breast_quad central vs right_up       recurrence-events          2.667
+breast_quad left_low vs right_up      recurrence-events          1.073
+breast_quad left_up vs right_up       recurrence-events          1.047
+breast_quad right_low vs right_up     recurrence-events          1.381
+deg_malig   1 vs 3                    recurrence-events          0.334
+deg_malig   2 vs 3                    recurrence-events          0.235
+inv_nodes   0-2 vs 9-11               recurrence-events          0.181
+inv_nodes   15-17 vs 9-11             recurrence-events          0.289
+inv_nodes   24-26 vs 9-11             recurrence-events        999.000
+inv_nodes   3-5 vs 9-11               recurrence-events          0.606
+inv_nodes   6-8 vs 9-11               recurrence-events          0.708
+irradiat    no vs yes                 recurrence-events          1.015
+menopause   ge40 vs premeno           recurrence-events          0.735
+menopause   lt40 vs premeno           recurrence-events          2.693
+node_caps   ? vs yes                  recurrence-events          0.394
+node_caps   no vs yes                 recurrence-events          0.896
+tumor_size  0-4 vs 50-54              recurrence-events          0.230
+tumor_size  10-14 vs 50-54            recurrence-events         <0.001
+tumor_size  15-19 vs 50-54            recurrence-events          0.649
+tumor_size  20-24 vs 50-54            recurrence-events          1.139
+tumor_size  25-29 vs 50-54            recurrence-events          0.925
+tumor_size  30-34 vs 50-54            recurrence-events          0.761
+tumor_size  35-39 vs 50-54            recurrence-events          0.835
+tumor_size  40-44 vs 50-54            recurrence-events          0.453
+tumor_size  45-49 vs 50-54            recurrence-events         <0.001
+tumor_size  5-9 vs 50-54              recurrence-events         <0.001
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Fit Statistics
+ 
+Target=Class Target Label=Class
+ 
+   Fit
+Statistics    Statistics Label                    Train    Validation      Test
+ 
+ _AIC_        Akaike's Information Criterion    227.618         .          .
+ _ASE_        Average Squared Error               0.159        0.217      0.1293
+ _AVERR_      Average Error Function              0.475        0.865      0.6901
+ _DFE_        Degrees of Freedom for Error      137.000         .          .
+ _DFM_        Model Degrees of Freedom           33.000         .          .
+ _DFT_        Total Degrees of Freedom          170.000         .          .
+ _DIV_        Divisor for ASE                   340.000      172.000     60.0000
+ _ERR_        Error Function                    161.618      148.753     41.4089
+ _FPE_        Final Prediction Error              0.235         .          .
+ _MAX_        Maximum Absolute Error              0.914        1.000      1.0000
+ _MSE_        Mean Square Error                   0.197        0.217      0.1293
+ _NOBS_       Sum of Frequencies                170.000       86.000     30.0000
+ _NW_         Number of Estimate Weights         33.000         .          .
+ _RASE_       Root Average Sum of Squares         0.398        0.466      0.3596
+ _RFPE_       Root Final Prediction Error         0.485         .          .
+ _RMSE_       Root Mean Squared Error             0.444        0.466      0.3596
+ _SBC_        Schwarz's Bayesian Criterion      331.099         .          .
+ _SSE_        Sum of Squared Errors              53.930       37.397      7.7599
+ _SUMW_       Sum of Case Weights Times Freq    340.000      172.000     60.0000
+ _MISC_       Misclassification Rate              0.229        0.314      0.1667
+ 
+ 
+ 
+ 
+Classification Table
+ 
+Data Role=TRAIN Target Variable=Class Target Label=Class
+ 
+                                                Target       Outcome    Frequency      Total
+       Target                Outcome          Percentage   Percentage     Count     Percentage
+ 
+NO-RECURRENCE-EVENTS   NO-RECURRENCE-EVENTS     78.7234       92.5         111        65.2941
+RECURRENCE-EVENTS      NO-RECURRENCE-EVENTS     21.2766       60.0          30        17.6471
+NO-RECURRENCE-EVENTS   RECURRENCE-EVENTS        31.0345        7.5           9         5.2941
+RECURRENCE-EVENTS      RECURRENCE-EVENTS        68.9655       40.0          20        11.7647
+ 
+ 
+Data Role=VALIDATE Target Variable=Class Target Label=Class
+ 
+                                                Target       Outcome    Frequency      Total
+       Target                Outcome          Percentage   Percentage     Count     Percentage
+ 
+NO-RECURRENCE-EVENTS   NO-RECURRENCE-EVENTS     74.6269      83.3333        50        58.1395
+RECURRENCE-EVENTS      NO-RECURRENCE-EVENTS     25.3731      65.3846        17        19.7674
+NO-RECURRENCE-EVENTS   RECURRENCE-EVENTS        52.6316      16.6667        10        11.6279
+RECURRENCE-EVENTS      RECURRENCE-EVENTS        47.3684      34.6154         9        10.4651
+ 
+ 
+ 
+ 
+Event Classification Table
+ 
+Data Role=TRAIN Target=Class Target Label=Class
+ 
+  False       True        False       True
+Negative    Negative    Positive    Positive
+ 
+   30          111          9          20
+ 
+ 
+Data Role=VALIDATE Target=Class Target Label=Class
+ 
+  False       True        False       True
+Negative    Negative    Positive    Positive
+ 
+   17          50          10           9
+ 
+ 
+ 
+ 
+Assessment Score Rankings
+ 
+Data Role=TRAIN Target Variable=Class Target Label=Class
+ 
+                                                                                    Mean
+                            Cumulative       %      Cumulative     Number of     Posterior
+Depth      Gain     Lift       Lift      Response   % Response   Observations   Probability
+ 
+   5    164.444   2.64444     2.64444     77.7778     77.7778          9          0.83579
+  10    180.000   2.97500     2.80000     87.5000     82.3529          8          0.62405
+  15    148.462   1.88889     2.48462     55.5556     73.0769          9          0.55166
+  20    110.000   0.85000     2.10000     25.0000     61.7647          8          0.49722
+  25    113.488   2.26667     2.13488     66.6667     62.7907          9          0.47465
+  30    100.000   1.27500     2.00000     37.5000     58.8235          8          0.44018
+  35     81.333   0.75556     1.81333     22.2222     53.3333          9          0.38939
+  40     70.000   0.85000     1.70000     25.0000     50.0000          8          0.31661
+  45     54.545   0.37778     1.54545     11.1111     45.4545          9          0.27606
+  50     56.000   1.70000     1.56000     50.0000     45.8824          8          0.24393
+  55     51.915   1.13333     1.51915     33.3333     44.6809          9          0.22048
+  60     43.333   0.42500     1.43333     12.5000     42.1569          8          0.20510
+  65     37.838   0.75556     1.37838     22.2222     40.5405          9          0.18984
+  70     34.286   0.85000     1.34286     25.0000     39.4958          8          0.16798
+  75     27.500   0.37778     1.27500     11.1111     37.5000          9          0.14554
+  80     20.000   0.00000     1.20000      0.0000     35.2941          8          0.12796
+  85     17.241   0.75556     1.17241     22.2222     34.4828          9          0.09945
+  90     11.111   0.00000     1.11111      0.0000     32.6797          8          0.04624
+  95      4.938   0.00000     1.04938      0.0000     30.8642          9          0.00000
+ 100      0.000   0.00000     1.00000      0.0000     29.4118          8          0.00000
+ 
+ 
+Data Role=VALIDATE Target Variable=Class Target Label=Class
+ 
+                                                                                    Mean
+                            Cumulative       %      Cumulative     Number of     Posterior
+Depth     Gain      Lift       Lift      Response   % Response   Observations   Probability
+ 
+   5    98.4615   1.98462     1.98462       60        60.0000          5          0.77976
+  10    47.0085   0.82692     1.47009       25        44.4444          4          0.66026
+  15    52.6627   1.65385     1.52663       50        46.1538          4          0.57302
+  20    65.3846   1.98462     1.65385       60        50.0000          5          0.51769
+  25    35.3147   0.00000     1.35315        0        40.9091          4          0.47018
+  30    39.9408   1.65385     1.39941       50        42.3077          4          0.38076
+  35    28.0397   0.66154     1.28040       20        38.7097          5          0.33649
+  40    41.7582   2.48077     1.41758       75        42.8571          4          0.29182
+  45    27.2189   0.00000     1.27219        0        38.4615          4          0.25589
+  50    30.7692   1.65385     1.30769       50        39.5349          4          0.21759
+  55    30.9295   1.32308     1.30929       40        39.5833          5          0.20081
+  60    20.8580   0.00000     1.20858        0        36.5385          4          0.17473
+  65    18.1319   0.82692     1.18132       25        35.7143          4          0.15565
+  70     8.4489   0.00000     1.08449        0        32.7869          5          0.13606
+  75    11.9527   1.65385     1.11953       50        33.8462          4          0.11902
+  80    10.2564   0.82692     1.10256       25        33.3333          4          0.10537
+  85     7.2765   0.66154     1.07277       20        32.4324          5          0.04352
+  90    10.2564   1.65385     1.10256       50        33.3333          4          0.00000
+  95     4.8780   0.00000     1.04878        0        31.7073          4          0.00000
+ 100     0.0000   0.00000     1.00000        0        30.2326          4          0.00000
+ 
+ 
+ 
+ 
+Assessment Score Distribution
+ 
+Data Role=TRAIN Target Variable=Class Target Label=Class
+ 
+ Posterior     Number                     Mean
+Probability      of      Number of     Posterior
+   Range       Events    Nonevents    Probability    Percentage
+ 
+ 0.95-1.00        2           0         1.00000         1.1765
+ 0.85-0.90        2           0         0.89018         1.1765
+ 0.80-0.85        0           1         0.81733         0.5882
+ 0.75-0.80        2           0         0.77800         1.1765
+ 0.65-0.70        3           1         0.67253         2.3529
+ 0.60-0.65        4           1         0.62033         2.9412
+ 0.55-0.60        2           2         0.56545         2.3529
+ 0.50-0.55        5           4         0.53270         5.2941
+ 0.45-0.50        7           7         0.48054         8.2353
+ 0.40-0.45        5           6         0.43473         6.4706
+ 0.35-0.40        0           4         0.38920         2.3529
+ 0.30-0.35        2           7         0.32457         5.2941
+ 0.25-0.30        2          11         0.27331         7.6471
+ 0.20-0.25        6          14         0.22050        11.7647
+ 0.15-0.20        5          17         0.17797        12.9412
+ 0.10-0.15        2          17         0.12670        11.1765
+ 0.05-0.10        1           7         0.08021         4.7059
+ 0.00-0.05        0          21         0.00398        12.3529
+ 
+ 
+Data Role=VALIDATE Target Variable=Class Target Label=Class
+ 
+ Posterior     Number                     Mean
+Probability      of      Number of     Posterior
+   Range       Events    Nonevents    Probability    Percentage
+ 
+ 0.80-0.85        1           0         0.84309         1.1628
+ 0.75-0.80        1           1         0.78565         2.3256
+ 0.70-0.75        1           2         0.73896         3.4884
+ 0.60-0.65        2           2         0.62812         4.6512
+ 0.55-0.60        1           1         0.56991         2.3256
+ 0.50-0.55        3           4         0.52011         8.1395
+ 0.45-0.50        0           2         0.47412         2.3256
+ 0.40-0.45        1           1         0.41438         2.3256
+ 0.35-0.40        1           3         0.36894         4.6512
+ 0.30-0.35        1           3         0.33237         4.6512
+ 0.25-0.30        3           3         0.28815         6.9767
+ 0.20-0.25        2           6         0.21855         9.3023
+ 0.15-0.20        3           8         0.17358        12.7907
+ 0.10-0.15        3           9         0.12372        13.9535
+ 0.05-0.10        1           3         0.07767         4.6512
+ 0.00-0.05        2          12         0.00001        16.2791
